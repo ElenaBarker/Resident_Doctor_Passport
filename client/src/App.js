@@ -1,9 +1,12 @@
 // App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './components/Home';
-import About from './components/About';
-import Contact from './components/Contact';
+import DoctorCompleatedForm from './pages/DoctorCompleatedForm';
+import DoctorForm from './pages/DoctorForm';
+import OrganisationSearch from "./pages/OrganisetionSearch"
+import OrganisationEmployeeList from './pages/OrganisationEmployeeList';
+import { Link } from 'react-router-dom';
+
 
 function App() {
   return (
@@ -21,9 +24,9 @@ function App() {
         </nav>
         <Routes>
           <Route path="/doctor" element={<DoctorForm />} />
-          <Route path="/doctor/compleat" element={<DoctorComplitedForm />} />
+          <Route path="/doctor/compleat" element={<DoctorCompleatedForm />} />
           <Route path="/organisation" element={<OrganisationSearch />} />
-          <Route path="/organisation/carrent" element={<OrganisetionEmploy />} />
+          <Route path="/organisation/carrent" element={<OrganisationEmployeeList />} />
         </Routes>
       </div>
     </Router>
