@@ -1,33 +1,55 @@
-// App.js
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import DoctorCompleatedForm from './pages/DoctorCompleatedForm';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Grid } from "@mui/material";
+import PositionedMenu from './components/MenuButton';
+import DoctorCompletedForm from './pages/DoctorCompletedForm';
 import DoctorForm from './pages/DoctorForm';
-import OrganisationSearch from "./pages/OrganisetionSearch"
+import OrganisationSearch from './pages/OrganisationSearch';
 import OrganisationEmployeeList from './pages/OrganisationEmployeeList';
-import { Link } from 'react-router-dom';
+import Home from './pages/Home';
+import logoImage from './logo_image.png';
 
 
 function App() {
   return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/doctor">Doctor Form</Link>
-            </li>
-            <li>
-              <Link to="/organisation">OrganisationSearch</Link>
-            </li>
-          </ul>
-        </nav>
-        <Routes>
-          <Route path="/doctor" element={<DoctorForm />} />
-          <Route path="/doctor/compleat" element={<DoctorCompleatedForm />} />
-          <Route path="/organisation" element={<OrganisationSearch />} />
-          <Route path="/organisation/carrent" element={<OrganisationEmployeeList />} />
-        </Routes>
+      {/* Main container with flex display */}
+      <div style={{
+        display: "flex",
+        flexDirection: "column",
+        height: "100vh",
+        width: "100%",
+        alignItems: "center"
+      }}>
+        {/* Top bar with PositionedMenu */}
+        <Grid container sx={{
+          width: "90%",
+          justifyContent: "space-between",
+          alignItems: "center"
+        }}>
+          <Grid item>
+            <img src={logoImage} alt="Logo" style={{ maxHeight: "80px" }} />
+          </Grid>
+          <Grid item>
+            <PositionedMenu />
+          </Grid>
+        </Grid>
+
+        {/* Main content area */}
+        <div style={{
+          flexGrow: 1,
+          display: 'flex',
+          justifyContent: "center",
+          alignItems: "center"
+        }}>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/doctor" component={DoctorForm} />
+            <Route path="/compleatForm" component={DoctorCompletedForm} />
+            <Route path="/organisation" component={OrganisationSearch} />
+            <Route path="/currentDoctors" component={OrganisationEmployeeList} />
+          </Switch>
+        </div>
       </div>
     </Router>
   );
