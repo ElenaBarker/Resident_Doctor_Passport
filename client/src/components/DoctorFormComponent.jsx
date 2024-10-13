@@ -81,6 +81,7 @@ const DoctorFormComponent = () => {
         console.log('Form submitted:', formData);
 
         history.push('/doctor/compleat');
+
     }
 
     return (
