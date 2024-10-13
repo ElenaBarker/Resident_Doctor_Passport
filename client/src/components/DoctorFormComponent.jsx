@@ -8,8 +8,10 @@ import {
     Checkbox,
     FormControlLabel,
 } from "@mui/material";
+import { useHistory } from 'react-router-dom';
 
 const DoctorFormComponent = () => {
+    const history = useHistory();
     // State to store form data
     const [formData, setFormData] = useState({
         // General Information
@@ -73,6 +75,13 @@ const DoctorFormComponent = () => {
             [name]: type === 'checkbox' ? checked : value,
         }));
     };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log('Form submitted:', formData);
+
+        history.push('/doctor/compleat');
+    }
 
     return (
         <Box sx={{
@@ -517,11 +526,13 @@ const DoctorFormComponent = () => {
             </Grid>
 
             {/* Submit Button */}
-            <Button variant="contained" color="primary" sx={{ marginTop: 3 }}>
+            <Button variant="contained" color="primary" sx={{ marginTop: 3 }} onSubmit={handleSubmit}>
                 Submit
             </Button>
         </Box>
     );
 };
+
+
 
 export default DoctorFormComponent;

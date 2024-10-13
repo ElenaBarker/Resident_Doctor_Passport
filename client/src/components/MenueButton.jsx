@@ -35,7 +35,7 @@ export default function PositionedMenu() {
                 aria-labelledby="demo-positioned-button"
                 anchorEl={anchorEl}
                 open={open}
-                onClose={() => handleClose(buttonLabel)} // Close menu without changing label
+                onClose={() => handleClose(buttonLabel)}
                 anchorOrigin={{
                     vertical: 'top',
                     horizontal: 'left',

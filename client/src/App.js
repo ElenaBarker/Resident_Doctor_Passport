@@ -9,6 +9,7 @@ import OrganisationEmployeeList from './pages/OrganisationEmployeeList';
 import Home from './pages/Home';
 import logoImage from './logo_image.png';
 
+
 function App() {
   return (
     <Router>
@@ -19,8 +20,7 @@ function App() {
         height: "100vh",
         width: "100%",
         alignItems: "center"
-      }}
-      >
+      }}>
         {/* Top bar with PositionedMenu */}
         <Grid container sx={{
           width: "90%",
@@ -43,11 +43,11 @@ function App() {
           alignItems: "center"
         }}>
           <Switch>
-            <Route path="/" exact component={Home} /> {/* Use exact for the root route */}
+            <Route path="/" exact component={Home} />
             <Route path="/doctor" component={DoctorForm} />
-            <Route path="/doctor/compleat" component={DoctorCompletedForm} />
+            <Route path="/compleatForm" component={DoctorCompletedForm} />
             <Route path="/organisation" component={OrganisationSearch} />
-            <Route path="/organisation/current" component={OrganisationEmployeeList} /> {/* Corrected path spelling */}
+            <Route path="/currentDoctors" component={OrganisationEmployeeList} />
           </Switch>
         </div>
       </div>
