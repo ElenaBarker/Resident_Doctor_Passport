@@ -6,24 +6,25 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Checkbox, Grid } from '@mui/material';
 
-const DoctorCard = () => {
+const DoctorCard = ({ doctor }) => {
     return (
         <Card sx={{ width: "40rem" }}>
             <CardContent>
                 <Grid container direction={'row'} justifyContent={'space-between'}>
                     <Grid item>
                         <Typography gutterBottom variant="h5" component="div">
-                            Doctor Name
+                            {doctor.first_name} {doctor.last_name}
                         </Typography>
                     </Grid>
-                    <Grid item><Checkbox /></Grid>
-
+                    <Grid item>
+                        <Checkbox />
+                    </Grid>
                 </Grid>
                 <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                    GMC Number 3525636
+                    GMC Number {doctor.gmc_number} {/* Replace with actual GMC number */}
                 </Typography>
                 <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                    Time authorised
+                    Phone number: {doctor.phone_number} {/* Replace with actual time authorised */}
                 </Typography>
             </CardContent>
             <CardActions>
@@ -31,5 +32,6 @@ const DoctorCard = () => {
             </CardActions>
         </Card>
     );
-}
-export default DoctorCard
+};
+
+export default DoctorCard;

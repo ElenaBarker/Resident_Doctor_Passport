@@ -28,7 +28,7 @@ function App() {
           alignItems: "center"
         }}>
           <Grid item>
-            <img src={logoImage} alt="Logo" style={{ maxHeight: "80px" }} />
+            <img src={logoImage} alt="Logo" style={{ maxHeight: "120px" }} />
           </Grid>
           <Grid item>
             <PositionedMenu />
